@@ -6,7 +6,12 @@ const config: Config = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        uncial: ["Uncial Antiqua", 'serif'], 
+        unifraktur: ["UnifrakturCook", 'serif'],
+      },
+    },
   },
   plugins: [],
 }
