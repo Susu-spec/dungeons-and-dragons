@@ -1,52 +1,18 @@
-import { useReactTable, ColumnDef, getCoreRowModel, flexRender } from "@tanstack/react-table";
-
-interface Data {
-  id: number;
-  name: string;
-  type: string;
-}
-
-const data: Data[] = [
-  { id: 1, name: "Fireball", type: "Spell" },
-  { id: 2, name: "Dragon", type: "Monster" },
-  { id: 3, name: "Healing Potion", type: "Item" },
-  { id: 4, name: "Dragon", type: "Monster"  },
-  { id: 5, name: "Fireball", type: "Spell" },
-  { id: 6, name: "Healing Potion", type: "Item" },
-  { id: 7, name: "Fireball", type: "Spell" },
-  { id: 8, name: "Healing Potion", type: "Item" },
-  { id: 9, name: "Fireball", type: "Spell" },
-  { id: 10, name: "Dragon", type: "Monster"  },
-];
-
-const columns: ColumnDef<Data>[] = [
-    {
-      accessorKey: "id",
-      header: "ID",
-    },
-    {
-      accessorKey: "name",
-      header: "Name",
-    },
-    {
-      accessorKey: "name",
-      header: "Name",
-    },
-    {
-      accessorKey: "name",
-      header: "Name",
-    },
-    {
-      accessorKey: "type",
-      header: "Type",
-    },
-    {
-      accessorKey: "type",
-      header: "Type",
-    },
-  ];
+import { useReactTable, getCoreRowModel, flexRender } from "@tanstack/react-table";
   
-const Table = () => {
+export const CustomCell = ({
+  value,
+  className,
+}: {
+  value: any;
+  className: string;
+}) => (
+  <div title={value} className={className}>
+    {value}
+  </div>
+);
+
+const Table = ({ columns, data }: { columns: any, data: any}) => {
   const table = useReactTable({
     columns, data, getCoreRowModel: getCoreRowModel()
   });
@@ -74,7 +40,7 @@ const Table = () => {
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id} className="odd:bg-scroll/10 even:bg-scroll/5 font-unifraktur border-none border-b-black">
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} className="p-2 text-black text-xl">
+                <td key={cell.id} className="p-2 max-w-[15rem] text-black text-xl truncate text-ellipsis">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
