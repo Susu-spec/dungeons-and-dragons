@@ -39,6 +39,16 @@ export const columns: ColumnDef<Equipment>[] = [
         ),
     },
     {
+        accessorKey: "equipment_category.name",
+        header: "Category",
+        cell: (info) => (
+          <CustomCell
+            value={info.getValue() ?? "Can't describe this monster."}
+            className="min-w-[7rem] max-w-[15rem] truncate text-ellipsis whitespace-nowrap"
+          />
+        ),
+    },
+    {
         accessorKey: "cost",
         header: "Cost",
         cell: (info) => {
@@ -50,16 +60,6 @@ export const columns: ColumnDef<Equipment>[] = [
             />
             )
         },
-    },
-    {
-        accessorKey: "equipment_category.name",
-        header: "Category",
-        cell: (info) => (
-          <CustomCell
-            value={info.getValue() ?? "Can't describe this monster."}
-            className="min-w-[8rem] max-w-[15rem] truncate text-ellipsis whitespace-nowrap"
-          />
-        ),
     },
     {
         accessorKey: "weight",
