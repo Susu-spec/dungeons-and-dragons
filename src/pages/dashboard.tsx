@@ -2,6 +2,8 @@ import { useState } from "react";
 import SearchFilter from "../components/search-filter";
 import MedievalTabs from "../components/medieval-tabs";
 import SpellsTable from "../components/tables/spells-table";
+import MonstersTable from "../components/tables/monsters-table";
+import EquipmentTable from "../components/tables/equipment-table";
 
 const compartments = [
     {
@@ -12,12 +14,12 @@ const compartments = [
     {
         id: "monsters",
         label: "Monsters",
-        content: null
+        content: <MonstersTable />
     },
     {
-        id: "items",
-        label: "Items",
-        content: null
+        id: "equipment",
+        label: "Equipment",
+        content: <EquipmentTable />
     },
 ]
 export default function Dashboard() {
