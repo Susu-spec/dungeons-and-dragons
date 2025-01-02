@@ -18,6 +18,7 @@ const GET_SPELLS = gql`
             ritual
             range
             level
+            higher_level
             material
             duration
             concentration
@@ -32,7 +33,6 @@ export default function SpellsTable() {
 
     const spells = data?.spells || [];
 
-    console.log(spells)
     return (
         <>
             <Table data={spells} columns={columns} />

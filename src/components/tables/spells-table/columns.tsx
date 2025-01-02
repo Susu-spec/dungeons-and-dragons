@@ -1,5 +1,6 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { CustomCell } from "../../table";
+import ViewRow from "../../view";
 
 export interface Spell {
   index: string;
@@ -15,6 +16,7 @@ export interface Spell {
   ritual: boolean;
   range: string;
   level: number;
+  higher_level: string[];
   material: string;
   duration: string;
   desc: string[];
@@ -46,7 +48,7 @@ export const columns: ColumnDef<Spell>[] = [
       header: "Material",
       cell: (info) => (
         <CustomCell
-          value={info.getValue()}
+          value={info.getValue() ?? "No materials."}
           className="max-w-[20rem] text-ellipsis truncate"
         />
       ),
@@ -69,6 +71,18 @@ export const columns: ColumnDef<Spell>[] = [
           value={info.getValue()}
           className="max-w-[5rem] text-center"
         />
+      ),
+    },
+    {
+      header: () => <CustomCell value="" className="w-full md:max-w-[3rem]" />,
+      accessorKey: "action",
+      cell: ({ row }) => (
+        <div className="flex place-content-center items-center gap-2">
+          <CustomCell
+            value={<ViewRow data={row.original} />}
+            className="flex justify-center items-center w-full md:max-w-[3rem]"
+          />
+        </div>
       ),
     },
   ];
