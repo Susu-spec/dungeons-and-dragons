@@ -79,7 +79,7 @@ export const columns: ColumnDef<Spell>[] = [
       cell: ({ row }) => (
         <div className="flex place-content-center items-center gap-2">
           <CustomCell
-            value={<ViewRow data={row.original} />}
+            value={<ViewRow data={row.original} > <div></div></ViewRow>}
             className="flex justify-center items-center w-full md:max-w-[3rem]"
           />
         </div>

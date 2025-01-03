@@ -34,7 +34,7 @@ const Table = ({ columns, data }: { columns: any, data: any}) => {
 
 
   return (
-    <div className="flex flex-col gap-4 mb-4">
+    <div className="flex flex-col gap-4">
       <div className="scroll-table bg-transparent border-stone-600 border-scroll border-2 rounded-lg p-4 shadow-2xl">
         <table className="table-auto w-full border-collapse overflow-scroll">
           <thead className="bg-scroll text-black text-2xl font-unifraktur">
