@@ -31,7 +31,7 @@ export default function ViewRow({ data, CardContent }: ViewRowProps) {
         {open && (
           <div className=" w-full h-full mx-auto md:max-h-[20.5rem] md:max-w-[30rem]">
             <motion.div
-              className="fixed inset-x-[30%] inset-y-[20%] md:!pt-0 w-full h-full mx-auto md:max-h-[40.5rem] md:max-w-[30rem] z-50"
+              className="fixed inset-x-[30%] inset-y-[20%] md:!pt-0 w-full h-full bg-transparent mx-auto md:max-h-[40.5rem] md:max-w-[30rem] z-50"
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}

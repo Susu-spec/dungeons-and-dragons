@@ -36,7 +36,7 @@ const GET_MONSTERS = gql`
 `;
 
 export default function MonstersTable({ activeTab }: { activeTab: string }) {
-  const { data, loading } = useQuery(GET_MONSTERS);
+  const { data } = useQuery(GET_MONSTERS);
   const [localSearch, setLocalSearch] = useState("");
 
   const monsters = data?.monsters || [];

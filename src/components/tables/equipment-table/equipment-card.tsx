@@ -1,7 +1,6 @@
 import { CardContentProps } from "../../../types";
 
-export const SpellCard = ({ variant, data }: CardContentProps) => {
-  console.log(data);
+export const EquipmentCard = ({ variant, data }: CardContentProps) => {
   return (
     <div
       className={`w-full h-full flex items-center justify-center shadow-md rounded-3xl font-lato dark-brown ${

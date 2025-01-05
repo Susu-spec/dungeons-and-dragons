@@ -77,3 +77,55 @@ body {
 .card-container:hover .card {
   transform: rotateY(180deg);
 }
+
+@keyframes torch-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 140, 0, 0.8);
+  }
+}
+
+.torch {
+  width: 10px;
+  height: 10px;
+  background: orange;
+  border-radius: 50%;
+  animation: torch-glow 3s infinite;
+}
+
+.bg-paper {
+  background: url("../assets/paper-bg.png") no-repeat center center;
+  background-size: cover;
+}
+
+.bg-parchment {
+  background: url("../assets/parchment.png") no-repeat center center;
+  background-size: cover;
+}
+
+.brown {
+  color: #4b2e2e;
+}
+
+.dark-brown {
+  color: #5c4033;
+}
+
+.royal-red {
+  color: #7d2626;
+}
+
+.dark-red {
+  color: #8b0000;
+}
+
+.royal-gold {
+  color: #a67c00;
+}
+
+.muted-gold {
+  color: #c4a484;
+}

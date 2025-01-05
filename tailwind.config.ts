@@ -7,6 +7,7 @@ const config: Config = {
       fontFamily: {
         uncial: ["Uncial Antiqua", "serif"],
         unifraktur: ["UnifrakturCook", "serif"],
+        lato: ["Lato", "serif"],
       },
     },
   },

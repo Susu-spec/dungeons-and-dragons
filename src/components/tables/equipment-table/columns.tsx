@@ -1,7 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { CustomCell } from "../../table";
 import ViewRow from "../../view";
-import { CardContent } from "../../card-content";
+import { EquipmentCard } from "./equipment-card";
 
 export interface Equipment {
   index: string;
@@ -74,7 +74,7 @@ export const columns: ColumnDef<Equipment>[] = [
     cell: ({ row }) => (
       <div className="flex place-content-center items-center gap-2">
         <CustomCell
-          value={<ViewRow data={row.original} CardContent={CardContent} />}
+          value={<ViewRow data={row.original} CardContent={EquipmentCard} />}
           className="flex justify-center items-center w-full md:max-w-[3rem]"
         />
       </div>
