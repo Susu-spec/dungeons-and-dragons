@@ -37,6 +37,7 @@ export const columns: ColumnDef<Equipment>[] = [
         className="max-w-[15rem] truncate text-ellipsis whitespace-nowrap"
       />
     ),
+    enableGlobalFilter: false,
   },
   {
     accessorKey: "equipment_category.name",
@@ -57,6 +58,7 @@ export const columns: ColumnDef<Equipment>[] = [
         <CustomCell value={`${quantity} ${unit}`} className="min-w-[8rem]" />
       );
     },
+    enableGlobalFilter: false,
   },
   {
     accessorKey: "weight",
@@ -64,6 +66,7 @@ export const columns: ColumnDef<Equipment>[] = [
     cell: (info) => (
       <CustomCell value={info.getValue()} className="max-w-[5rem]" />
     ),
+    enableGlobalFilter: false,
   },
   {
     header: () => <CustomCell value="" className="w-full md:max-w-[3rem]" />,

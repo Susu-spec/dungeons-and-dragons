@@ -43,6 +43,7 @@ export const columns: ColumnDef<Spell>[] = [
         className="max-w-[20rem] truncate text-ellipsis whitespace-nowrap"
       />
     ),
+    enableGlobalFilter: false,
   },
   {
     accessorKey: "material",
@@ -70,6 +71,7 @@ export const columns: ColumnDef<Spell>[] = [
         className="max-w-[5rem] text-center"
       />
     ),
+    enableGlobalFilter: false,
   },
   {
     header: () => <CustomCell value="" className="w-full md:max-w-[3rem]" />,

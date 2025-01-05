@@ -5,25 +5,25 @@ import SpellsTable from "../components/tables/spells-table";
 import MonstersTable from "../components/tables/monsters-table";
 import EquipmentTable from "../components/tables/equipment-table";
 
-const compartments = [
-  {
-    id: "spells",
-    label: "Spells",
-    content: <SpellsTable />,
-  },
-  {
-    id: "monsters",
-    label: "Monsters",
-    content: <MonstersTable />,
-  },
-  {
-    id: "equipment",
-    label: "Equipment",
-    content: <EquipmentTable />,
-  },
-];
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("spells");
+  const compartments = [
+    {
+      id: "spells",
+      label: "Spells",
+      content: <SpellsTable activeTab={activeTab} />,
+    },
+    {
+      id: "monsters",
+      label: "Monsters",
+      content: <MonstersTable activeTab={activeTab} />,
+    },
+    {
+      id: "equipment",
+      label: "Equipment",
+      content: <EquipmentTable activeTab={activeTab} />,
+    },
+  ];
 
   return (
     <div className="h-[80vh] flex flex-col items-center">
@@ -32,14 +32,14 @@ export default function Dashboard() {
           Welcome to the realm
         </h1>
       </div>
-      <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-3">
-        <SearchFilter activeTab={activeTab} />
-        <MedievalTabs
-          tabs={compartments}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-      </div>
+      {/* <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-3">
+        <SearchFilter activeTab={activeTab} /> */}
+      <MedievalTabs
+        tabs={compartments}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+      {/* </div> */}
     </div>
   );
 }

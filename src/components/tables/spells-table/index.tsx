@@ -1,6 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import { columns } from "./columns";
 import Table from "../../table";
+import { useState } from "react";
+import SearchFilter from "../../search-filter";
 
 const GET_SPELLS = gql`
   query {
@@ -28,14 +30,25 @@ const GET_SPELLS = gql`
   }
 `;
 
-export default function SpellsTable() {
+export default function SpellsTable({ activeTab }: { activeTab: string }) {
   const { data } = useQuery(GET_SPELLS);
+  const [localSearch, setLocalSearch] = useState("");
 
   const spells = data?.spells || [];
 
   return (
-    <>
-      <Table data={spells} columns={columns} />
-    </>
+    <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
+      <SearchFilter
+        activeTab={activeTab}
+        localSearch={localSearch}
+        setLocalSearch={setLocalSearch}
+      />
+      <Table
+        data={spells}
+        columns={columns}
+        localSearch={localSearch}
+        setLocalSearch={setLocalSearch}
+      />
+    </div>
   );
 }

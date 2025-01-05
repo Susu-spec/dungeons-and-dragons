@@ -10,8 +10,8 @@ interface Tab {
 
 export default function MedievalTabs({ tabs, activeTab, setActiveTab }: Tab) {
   return (
-    <div className="flex flex-col gap-4 p-4">
-      <div className="flex mt-6 space-x-4 bg-scroll-paper rounded-lg ">
+    <div className="flex flex-col gap-2 p-4 w-full">
+      <div className="flex mt-6 mx-auto space-x-4 bg-scroll-paper rounded-lg ">
         {tabs.map((tab) => (
           <button
             key={tab.id}

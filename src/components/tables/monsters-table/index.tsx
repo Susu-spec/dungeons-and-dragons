@@ -1,6 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import Table from "../../table";
 import { columns } from "./columns";
+import { useState } from "react";
+import SearchFilter from "../../search-filter";
 
 const GET_MONSTERS = gql`
   query {
@@ -33,19 +35,27 @@ const GET_MONSTERS = gql`
   }
 `;
 
-export default function MonstersTable() {
+export default function MonstersTable({ activeTab }: { activeTab: string }) {
   const { data, loading } = useQuery(GET_MONSTERS);
+  const [localSearch, setLocalSearch] = useState("");
 
   const monsters = data?.monsters || [];
 
   return (
     <>
-      {loading && (
-        <div className="fixed top-0 bottom-0 inset-0 w-full h-full bg-opacity-30 z-60">
-          <p>loading...</p>
-        </div>
-      )}
-      <Table data={monsters} columns={columns} />
+      <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
+        <SearchFilter
+          activeTab={activeTab}
+          localSearch={localSearch}
+          setLocalSearch={setLocalSearch}
+        />
+        <Table
+          data={monsters}
+          columns={columns}
+          localSearch={localSearch}
+          setLocalSearch={setLocalSearch}
+        />
+      </div>
     </>
   );
 }

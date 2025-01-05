@@ -8,20 +8,14 @@ export const MonsterCard = ({ variant, data }: CardContentProps) => {
         variant === "Front" ? "bg-blue-500" : "bg-green-500"
       } text-white text-lg`}
     >
-      {variant === "Front" ? 
-      "Front of Card" : 
-      "Back of Card"}
+      {variant === "Front" ? "Front of Card" : "Back of Card"}
     </div>
   );
 };
 
-const CardFront = ({ data }: { data : any }) => {
-    return (
-        <></>
-    )
-}
-const CardBack = ({ data }: { data : any }) => {
-    return (
-        <></>
-    )
-}
+const CardFront = ({ data }: { data: any }) => {
+  return <></>;
+};
+const CardBack = ({ data }: { data: any }) => {
+  return <></>;
+};

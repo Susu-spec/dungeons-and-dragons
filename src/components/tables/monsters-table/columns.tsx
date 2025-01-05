@@ -51,6 +51,7 @@ export const columns: ColumnDef<Monster>[] = [
         className="max-w-[20rem] truncate text-ellipsis whitespace-nowrap"
       />
     ),
+    enableGlobalFilter: false,
   },
   {
     accessorKey: "languages",
@@ -68,6 +69,7 @@ export const columns: ColumnDef<Monster>[] = [
     cell: (info) => (
       <CustomCell value={info.getValue()} className="max-w-[5rem]" />
     ),
+    enableGlobalFilter: false,
   },
 
   {
