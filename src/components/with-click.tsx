@@ -50,90 +50,89 @@ export function withClick(Component: React.ComponentType<any>) {
     return (
       <AnimatePresence>
         {/* {isVisible && ( */}
+        <motion.div
+          onClick={handleClick}
+          transition={spring}
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: "100%", opacity: 0 }}
+          style={{
+            perspective: "1200px",
+            transformStyle: "preserve-3d",
+            width: `${props.width}`,
+            height: `${props.height}`,
+          }}
+        >
           <motion.div
-            onClick={handleClick}
+            ref={ref}
+            whileHover={{ scale: 1.1 }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
             transition={spring}
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: "100%", opacity: 0 }}
             style={{
-              perspective: "1200px",
-              transformStyle: "preserve-3d",
-              width: `${props.width}`,
-              height: `${props.height}`,
+              width: "100%",
+              height: "100%",
+              rotateX: dx,
+              rotateY: dy,
             }}
           >
-            <motion.div
-              ref={ref}
-              whileHover={{ scale: 1.1 }}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              transition={spring}
+            <div
               style={{
+                perspective: "1200px",
+                transformStyle: "preserve-3d",
                 width: "100%",
                 height: "100%",
-                rotateX: dx,
-                rotateY: dy,
               }}
             >
-              <div
+              <motion.div
+                animate={{ rotateY: isFlipped ? -180 : 0 }}
+                transition={spring}
                 style={{
-                  perspective: "1200px",
-                  transformStyle: "preserve-3d",
                   width: "100%",
                   height: "100%",
+                  zIndex: isFlipped ? 0 : 1,
+                  backfaceVisibility: "hidden",
+                  position: "absolute",
                 }}
               >
-                <motion.div
-                  animate={{ rotateY: isFlipped ? -180 : 0 }}
-                  transition={spring}
+                <Component
+                  {...props}
+                  variant="Front"
                   style={{
                     width: "100%",
                     height: "100%",
-                    zIndex: isFlipped ? 0 : 1,
-                    backfaceVisibility: "hidden",
-                    position: "absolute",
                   }}
-                >
-                  <Component
-                    {...props}
-                    variant="Front"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{ rotateY: 180 }}
-                  animate={{ rotateY: isFlipped ? 0 : 180 }}
-                  transition={spring}
+                />
+              </motion.div>
+              <motion.div
+                initial={{ rotateY: 180 }}
+                animate={{ rotateY: isFlipped ? 0 : 180 }}
+                transition={spring}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  zIndex: isFlipped ? 1 : 0,
+                  backfaceVisibility: "hidden",
+                  position: "absolute",
+                }}
+              >
+                <Component
+                  {...props}
+                  variant="Back"
                   style={{
                     width: "100%",
                     height: "100%",
-                    zIndex: isFlipped ? 1 : 0,
-                    backfaceVisibility: "hidden",
-                    position: "absolute",
                   }}
-                >
-                  <Component
-                    {...props}
-                    variant="Back"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  />
-                </motion.div>
-              </div>
-            </motion.div>
+                />
+              </motion.div>
+            </div>
           </motion.div>
+        </motion.div>
         {/* )} */}
       </AnimatePresence>
     );
   };
 }
-
 
 // export const withClick = (WrappedComponent: React.FC<{ variant: "Front" | "Back" }>) => {
 //     return ({ width, height }: { width: string; height: string }) => {
