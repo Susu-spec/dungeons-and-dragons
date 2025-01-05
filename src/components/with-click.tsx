@@ -10,14 +10,12 @@ const spring = {
 export function withClick(Component: React.ComponentType<any>) {
   return function WrappedComponent(props: any) {
     const [isFlipped, setIsFlipped] = useState(false);
-    const [isVisible, setIsVisible] = useState(false); // For translateY animation
     const [rotateXaxis, setRotateXaxis] = useState(0);
     const [rotateYaxis, setRotateYaxis] = useState(0);
 
     const ref = useRef<HTMLDivElement>(null);
 
     const handleClick = () => {
-      setIsVisible(true);
       setIsFlipped((prev) => !prev);
     };
 
@@ -49,7 +47,6 @@ export function withClick(Component: React.ComponentType<any>) {
 
     return (
       <AnimatePresence>
-        {/* {isVisible && ( */}
         <motion.div
           onClick={handleClick}
           transition={spring}
@@ -128,24 +125,7 @@ export function withClick(Component: React.ComponentType<any>) {
             </div>
           </motion.div>
         </motion.div>
-        {/* )} */}
       </AnimatePresence>
     );
   };
 }
-
-// export const withClick = (WrappedComponent: React.FC<{ variant: "Front" | "Back" }>) => {
-//     return ({ width, height }: { width: string; height: string }) => {
-//         const [flipped, setFlipped] = useState(false);
-
-//         return (
-//             <div
-//                 className="relative"
-//                 style={{ width, height }}
-//                 onClick={() => setFlipped(!flipped)}
-//             >
-//                 <WrappedComponent variant={flipped ? "Back" : "Front"} />
-//             </div>
-//         );
-//     };
-// };
