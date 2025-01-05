@@ -34,12 +34,13 @@ const GET_MONSTERS = gql`
 `;
 
 export default function MonstersTable() {
-    const { data } = useQuery(GET_MONSTERS);
+    const { data, loading } = useQuery(GET_MONSTERS);
 
     const monsters = data?.monsters || [];
 
     return (
         <>
+        {loading && <div className="fixed top-0 bottom-0 inset-0 w-full h-full bg-opacity-30 z-60"><p>loading...</p></div>}
             <Table data={monsters} columns={columns} /> 
         </>
     )

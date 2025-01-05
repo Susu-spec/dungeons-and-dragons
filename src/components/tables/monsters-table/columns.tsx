@@ -1,6 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { CustomCell } from "../../table";
 import ViewRow from "../../view";
+import { CardContent } from "../../card-content";
 
 function capitalizeFirstLetter(text: string) {
     if (!text) return ""; // Handle empty or null strings
@@ -83,7 +84,7 @@ export const columns: ColumnDef<Monster>[] = [
         cell: ({ row }) => (
         <div className="flex place-content-center items-center gap-2">
             <CustomCell
-                value={<ViewRow data={row.original} />}
+                value={<ViewRow data={row.original} CardContent={CardContent}/>}
                 className="flex justify-center items-center w-full md:max-w-[3rem]"
             />
         </div>
