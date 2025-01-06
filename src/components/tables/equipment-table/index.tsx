@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import Table from "../../table";
+import Table from "../../Table";
 import { columns } from "./columns";
 import { useState } from "react";
 import SearchFilter from "../../search-filter";
