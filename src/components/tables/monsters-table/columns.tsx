@@ -1,7 +1,6 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { CustomCell } from "../../table";
 import ViewRow from "../../view";
-import { CardContent } from "../../card-content";
 import { MonsterCard } from "./monster-card";
 
 function capitalizeFirstLetter(text: string) {

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import SearchFilter from "../components/search-filter";
 import MedievalTabs from "../components/medieval-tabs";
 import SpellsTable from "../components/tables/spells-table";
 import MonstersTable from "../components/tables/monsters-table";
@@ -32,14 +31,11 @@ export default function Dashboard() {
           Welcome to the realm
         </h1>
       </div>
-      {/* <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-3">
-        <SearchFilter activeTab={activeTab} /> */}
       <MedievalTabs
         tabs={compartments}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
-      {/* </div> */}
     </div>
   );
 }
