@@ -3,7 +3,7 @@ import { CardContentProps } from "../../../types";
 export const SpellCard = ({ variant, data }: CardContentProps) => {
   return (
     <div
-      className={`w-full h-full flex items-center justify-center shadow-md rounded-3xl font-lato dark-brown ${
+      className={`w-full h-full flex items-center justify-center rounded-3xl font-lato dark-brown ${
         variant === "Front" ? "bg-paper" : "bg-paper"
       } text-white text-lg`}
     >

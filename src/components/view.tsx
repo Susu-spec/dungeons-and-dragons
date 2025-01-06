@@ -21,7 +21,7 @@ export default function ViewRow({ data, CardContent }: ViewRowProps) {
 
       {open && (
         <div
-          className="fixed inset-0 w-full h-full bg-opacity-50 z-50"
+          className="fixed inset-0 w-full h-full bg-black/30 z-50"
           onClick={() => {
             setTimeout(() => handleClose());
           }}
@@ -36,7 +36,7 @@ export default function ViewRow({ data, CardContent }: ViewRowProps) {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 50, damping: 20 }}
-              onClick={(e) => e.stopPropagation()} // Prevent closing on card click
+              onClick={(e) => e.stopPropagation()}
             >
               <FlipCard data={data} width="100%" height="100%" />
             </motion.div>

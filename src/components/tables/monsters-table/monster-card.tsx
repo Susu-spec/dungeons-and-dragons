@@ -4,7 +4,7 @@ export const MonsterCard = ({ variant, data }: CardContentProps) => {
   console.log(data);
   return (
     <div
-      className={`w-full h-full flex items-center justify-center shadow-md rounded-3xl font-lato dark-brown ${
+      className={`w-full h-full flex items-center justify-center rounded-3xl font-lato dark-brown ${
         variant === "Front" ? "bg-paper" : "bg-paper"
       } text-white text-lg`}
     >
@@ -91,8 +91,8 @@ const CardBack = ({ data }: { data: any }) => {
               {data?.special_abilities?.length > 0 ? (
                 data.special_abilities.map((ability: any, index: number) => (
                   <div key={index} className="flex flex-col gap-1">
-                    <p className="text-black text-lg font-semibold">
-                      {ability.name}
+                    <p className="text-black text-base font-bold">
+                      {ability.name}:
                     </p>
                     <p className="text-black text-sm text-wrap line-clamp-6">
                       {ability.desc}
