@@ -94,7 +94,9 @@ const CardBack = ({ data }: { data: any }) => {
                     <p className="text-black text-lg font-semibold">
                       {ability.name}
                     </p>
-                    <p className="text-black text-sm text-wrap line-clamp-6">{ability.desc}</p>
+                    <p className="text-black text-sm text-wrap line-clamp-6">
+                      {ability.desc}
+                    </p>
                   </div>
                 ))
               ) : (
