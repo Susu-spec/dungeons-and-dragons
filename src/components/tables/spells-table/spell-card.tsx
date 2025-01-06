@@ -69,7 +69,7 @@ const CardBack = ({ data }: { data: any }) => {
         {data?.name}
       </h3>
       <div className="grid grid-cols-2 gap-4 text-left w-full ">
-        <div className="flex flex-col justify-between h-full w-full min-h-[14rem]">
+        <div className="flex flex-col justify-between h-full w-full min-h-[20rem]">
           <div className="flex flex-col gap-2">
             <p className="text-black text-xl font-semibold font-unifraktur">
               Level
@@ -94,7 +94,7 @@ const CardBack = ({ data }: { data: any }) => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between h-full w-full min-h-[14rem]">
+        <div className="flex flex-col justify-between h-full w-full min-h-[20rem]">
           <div className="flex flex-col gap-2">
             <p className="text-black text-xl font-semibold font-unifraktur">
               Higher Level
