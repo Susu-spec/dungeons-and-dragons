@@ -1,10 +1,14 @@
-import { 
-  useReactTable, 
-  getCoreRowModel, 
-  flexRender, 
-  getPaginationRowModel } from "@tanstack/react-table";
+import {
+  useReactTable,
+  getCoreRowModel,
+  flexRender,
+  getPaginationRowModel,
+  getFilteredRowModel,
+} from "@tanstack/react-table";
 import Sword from "../assets/sword-24.png";
-  
+import Dragon from "../assets/danger.png";
+import { TableProps } from "../types";
+
 export const CustomCell = ({
   value,
   className,
@@ -17,21 +21,41 @@ export const CustomCell = ({
   </div>
 );
 
-const Table = ({ columns, data }: { columns: any, data: any}) => {
+const EmptyState = () => {
+  return (
+    <div className="relative flex flex-col gap-3 h-full w-full md:min-h-[30rem] items-center justify-center p-4 text-black font-semibold text-xl">
+      <img src={Dragon} alt="Dragon from Flaticon" width={128} height={128} />
+      <a
+        hidden={true}
+        className="absolute bottom-2 right-2 text-xs"
+        href="https://www.flaticon.com/free-icons/dinosaur"
+        title="dinosaur icons"
+      >
+        Dinosaur icons created by egorpolyakov - Flaticon
+      </a>
+      No data available.
+    </div>
+  );
+};
+
+const Table = ({ columns, data, localSearch, setLocalSearch }: TableProps) => {
   const table = useReactTable({
-    columns, 
-    data, 
+    columns,
+    data,
+    state: {
+      globalFilter: localSearch,
+    },
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onGlobalFilterChange: setLocalSearch,
     getPaginationRowModel: getPaginationRowModel(),
     initialState: {
       pagination: {
         pageIndex: 0,
-        pageSize: 7
-      }
-    }
+        pageSize: 7,
+      },
+    },
   });
-
-
 
   return (
     <div className="flex flex-col gap-4">
@@ -43,26 +67,43 @@ const Table = ({ columns, data }: { columns: any, data: any}) => {
                 {headerGroup.headers.map((header) => (
                   <th key={header.id} className="p-2 text-left">
                     {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}{" "}
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}{" "}
                   </th>
                 ))}
               </tr>
             ))}
           </thead>
           <tbody>
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id} className="odd:bg-scroll/10 even:bg-scroll/5 font-unifraktur border-none border-b-black">
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id} className="p-2 max-w-[15rem] text-black text-xl truncate text-ellipsis">
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
+            {table.getRowModel().rows.length === 0 ? (
+              <tr>
+                <td colSpan={columns.length}>
+                  <EmptyState />
+                </td>
               </tr>
-            ))}
+            ) : (
+              table.getRowModel().rows.map((row) => (
+                <tr
+                  key={row.id}
+                  className="odd:bg-scroll/10 even:bg-scroll/5 font-unifraktur border-none border-b-black"
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <td
+                      key={cell.id}
+                      className="p-2 max-w-[15rem] text-black text-xl truncate text-ellipsis"
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
@@ -70,8 +111,9 @@ const Table = ({ columns, data }: { columns: any, data: any}) => {
         <button
           className="p-4"
           onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}>
-            <img className="transform scale-x-[-1]" src={Sword} alt="Sword"/>
+          disabled={!table.getCanPreviousPage()}
+        >
+          <img className="transform scale-x-[-1]" src={Sword} alt="Sword" />
         </button>
         <ul className="flex gap-1 items-center">
           {Array.from({ length: table.getPageCount() }, (_, index) => (
@@ -88,12 +130,13 @@ const Table = ({ columns, data }: { columns: any, data: any}) => {
               </button>
             </li>
           ))}
-          </ul>
+        </ul>
         <button
           onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage}>
-            <img src={Sword} alt="Sword"/>
-          </button>
+          disabled={!table.getCanNextPage}
+        >
+          <img src={Sword} alt="Sword" />
+        </button>
       </div>
     </div>
   );
