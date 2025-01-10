@@ -16,10 +16,6 @@ export default function SearchFilter({
     setLocalSearch(value);
   };
 
-  // const shuffleString = (str: string) => {
-  //   return str.split('').sort(() => Math.random() - 0.5).join('');
-  // };
-
   return (
     <div className="w-full max-w-[50%] mx-auto flex gap-3 items-center justify-center">
       <input
