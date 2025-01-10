@@ -41,6 +41,10 @@ export default function MonstersTable({ activeTab }: { activeTab: string }) {
 
   const monsters = data?.monsters || [];
 
+  const getRando = () => {
+    setLocalSearch(monsters[Math.floor(Math.random() * monsters.length)]?.name);
+  };
+
   return (
     <>
       <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
@@ -48,6 +52,7 @@ export default function MonstersTable({ activeTab }: { activeTab: string }) {
           activeTab={activeTab}
           localSearch={localSearch}
           setLocalSearch={setLocalSearch}
+          getRando={getRando}
         />
         <Table
           data={monsters}

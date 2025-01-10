@@ -82,8 +82,8 @@ const CardBack = ({ data }: { data: any }) => {
         {data?.name}
       </h3>
       <div className="grid grid-cols-2 gap-4 text-left w-full ">
-        <div className="flex flex-col justify-between h-full w-full min-h-[20rem]">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3 justify-between h-full w-full min-h-[20rem]">
+          <div className="flex flex-col gap-3">
             <p className="text-black text-xl font-semibold font-unifraktur">
               Special Abilities
             </p>

@@ -38,7 +38,12 @@ const EmptyState = () => {
   );
 };
 
-export default function Table ({ columns, data, localSearch, setLocalSearch }: TableProps) {
+export default function Table({
+  columns,
+  data,
+  localSearch,
+  setLocalSearch,
+}: TableProps) {
   const table = useReactTable({
     columns,
     data,
@@ -140,4 +145,4 @@ export default function Table ({ columns, data, localSearch, setLocalSearch }: T
       </div>
     </div>
   );
-};
+}

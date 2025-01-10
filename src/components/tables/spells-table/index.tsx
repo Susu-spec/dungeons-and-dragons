@@ -36,12 +36,17 @@ export default function SpellsTable({ activeTab }: { activeTab: string }) {
 
   const spells = data?.spells || [];
 
+  const getRando = () => {
+    setLocalSearch(spells[Math.floor(Math.random() * spells.length)]?.name);
+  };
+
   return (
     <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
       <SearchFilter
         activeTab={activeTab}
         localSearch={localSearch}
         setLocalSearch={setLocalSearch}
+        getRando={getRando}
       />
       <Table
         data={spells}
