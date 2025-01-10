@@ -38,12 +38,7 @@ const EmptyState = () => {
   );
 };
 
-export default function Table({
-  columns,
-  data,
-  localSearch,
-  setLocalSearch,
-}: TableProps) {
+export default function Table ({ columns, data, localSearch, setLocalSearch }: TableProps) {
   const table = useReactTable({
     columns,
     data,
@@ -138,11 +133,11 @@ export default function Table({
         </ul>
         <button
           onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage}
+          disabled={!table.getCanNextPage()}
         >
           <img src={Sword} alt="Sword" />
         </button>
       </div>
     </div>
   );
-}
+};
