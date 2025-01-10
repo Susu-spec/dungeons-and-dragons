@@ -1,3 +1,5 @@
+import Dice from "../assets/dice-icon.png"
+
 export default function SearchFilter({
   activeTab,
   localSearch,
@@ -29,7 +31,7 @@ export default function SearchFilter({
       />
       <button className="w-fit" onClick={getRando}>
         <img
-          src="/src/assets/dice-icon.png"
+          src={Dice}
           className="w-16 h-16 cursor-pointer shake"
         />
       </button>
