@@ -5,7 +5,7 @@ import {
   getPaginationRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
-import Sword from "../assets/sword-24.png";
+import Sword from "../assets/sword.png";
 import Dragon from "../assets/danger.png";
 import { TableProps } from "../types";
 
