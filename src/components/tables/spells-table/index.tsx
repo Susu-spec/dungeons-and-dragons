@@ -3,6 +3,7 @@ import { columns } from "./columns";
 import Table from "../../Table";
 import { useState } from "react";
 import SearchFilter from "../../search-filter";
+import Loader from "../../loader";
 
 const GET_SPELLS = gql`
   query {
@@ -31,17 +32,24 @@ const GET_SPELLS = gql`
 `;
 
 export default function SpellsTable({ activeTab }: { activeTab: string }) {
-  const { data } = useQuery(GET_SPELLS);
+  const { data, loading } = useQuery(GET_SPELLS);
   const [localSearch, setLocalSearch] = useState("");
+  const [loader, setLoader ] = useState(false);
 
   const spells = data?.spells || [];
 
   const getRando = () => {
-    setLocalSearch(spells[Math.floor(Math.random() * spells.length)]?.name);
+    setLoader(true);
+    setTimeout(() => {
+      setLoader(false)
+      setLocalSearch(spells[Math.floor(Math.random() * spells.length)]?.name);
+    }, 3000);
   };
 
   return (
-    <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
+    <>
+      {(loading || loader) && <Loader />}
+      <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
       <SearchFilter
         activeTab={activeTab}
         localSearch={localSearch}
@@ -55,5 +63,6 @@ export default function SpellsTable({ activeTab }: { activeTab: string }) {
         setLocalSearch={setLocalSearch}
       />
     </div>
+    </>
   );
 }
