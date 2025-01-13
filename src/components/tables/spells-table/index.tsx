@@ -34,14 +34,14 @@ const GET_SPELLS = gql`
 export default function SpellsTable({ activeTab }: { activeTab: string }) {
   const { data, loading } = useQuery(GET_SPELLS);
   const [localSearch, setLocalSearch] = useState("");
-  const [loader, setLoader ] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const spells = data?.spells || [];
 
   const getRando = () => {
     setLoader(true);
     setTimeout(() => {
-      setLoader(false)
+      setLoader(false);
       setLocalSearch(spells[Math.floor(Math.random() * spells.length)]?.name);
     }, 3000);
   };
@@ -50,19 +50,19 @@ export default function SpellsTable({ activeTab }: { activeTab: string }) {
     <>
       {(loading || loader) && <Loader />}
       <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
-      <SearchFilter
-        activeTab={activeTab}
-        localSearch={localSearch}
-        setLocalSearch={setLocalSearch}
-        getRando={getRando}
-      />
-      <Table
-        data={spells}
-        columns={columns}
-        localSearch={localSearch}
-        setLocalSearch={setLocalSearch}
-      />
-    </div>
+        <SearchFilter
+          activeTab={activeTab}
+          localSearch={localSearch}
+          setLocalSearch={setLocalSearch}
+          getRando={getRando}
+        />
+        <Table
+          data={spells}
+          columns={columns}
+          localSearch={localSearch}
+          setLocalSearch={setLocalSearch}
+        />
+      </div>
     </>
   );
 }

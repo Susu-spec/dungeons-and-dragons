@@ -46,14 +46,16 @@ export default function MonstersTable({ activeTab }: { activeTab: string }) {
   const getRando = () => {
     setLoader(true);
     setTimeout(() => {
-      setLoader(false)
-      setLocalSearch(monsters[Math.floor(Math.random() * monsters.length)]?.name);
+      setLoader(false);
+      setLocalSearch(
+        monsters[Math.floor(Math.random() * monsters.length)]?.name,
+      );
     }, 3000);
   };
 
   return (
     <>
-    {(loading || loader) && <Loader />}
+      {(loading || loader) && <Loader />}
       <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
         <SearchFilter
           activeTab={activeTab}

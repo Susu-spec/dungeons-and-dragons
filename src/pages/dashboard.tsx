@@ -30,7 +30,10 @@ export default function Dashboard() {
         <h1 className="!font-unifraktur font-semibold text-black text-5xl text-center md:text-7xl">
           Welcome to the realm
         </h1>
-        <p className="text-black tracking-wider">A dungeons and dragons inspired fantasy lore book. <span className="text-xs">eh not the entire thing</span></p>
+        <p className="text-black tracking-wider">
+          A dungeons and dragons inspired fantasy lore book.{" "}
+          <span className="text-xs">eh not the entire thing</span>
+        </p>
       </div>
       <MedievalTabs
         tabs={compartments}
