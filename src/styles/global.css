@@ -40,6 +40,8 @@ body {
   overflow-y: scroll;
 }
 
+
+
 .card-container {
   perspective: 1000px; /* Create a 3D space for the card to flip */
 }
@@ -185,4 +187,10 @@ body {
   );
   border-radius: 50%;
   z-index: 1;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }

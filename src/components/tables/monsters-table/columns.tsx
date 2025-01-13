@@ -73,13 +73,13 @@ export const columns: ColumnDef<Monster>[] = [
   },
 
   {
-    header: () => <CustomCell value="" className="w-full md:max-w-[3rem]" />,
+    header: () => <CustomCell className="w-full md:max-w-[3rem]" />,
     accessorKey: "action",
     cell: ({ row }) => (
-      <div className="flex place-content-center items-center gap-2">
+      <div className="flex place-content-center items-center gap-2 pointer-events-auto">
         <CustomCell
           value={<ViewRow data={row.original} CardContent={MonsterCard} />}
-          className="flex justify-center items-center w-full md:max-w-[3rem]"
+          className="flex justify-center items-center w-full md:max-w-[3rem] pointer-events-auto"
         />
       </div>
     ),

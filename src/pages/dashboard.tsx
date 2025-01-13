@@ -26,7 +26,7 @@ export default function Dashboard() {
 
   return (
     <div className="h-[80vh] flex flex-col items-center p-4 md:p-[2rem] ">
-      <div className="flex flex-col gap-3.5 items-center mx-auto w-full justify-center">
+      <div className="flex flex-col gap-3.5 items-center mx-auto w-full justify-center cursor-default">
         <h1 className="!font-unifraktur font-semibold text-black text-5xl text-center md:text-7xl">
           Welcome to the realm
         </h1>

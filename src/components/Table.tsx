@@ -13,7 +13,7 @@ export const CustomCell = ({
   value,
   className,
 }: {
-  value: any;
+  value?: any;
   className: string;
 }) => (
   <div title={value} className={className}>
@@ -98,7 +98,7 @@ export default function Table({
                   {row.getVisibleCells().map((cell) => (
                     <td
                       key={cell.id}
-                      className="p-2 max-w-[15rem] text-black text-xl truncate text-ellipsis"
+                      className="p-2 max-w-[15rem] text-black text-xl focus-visible:outline-none cursor-default" 
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
@@ -114,7 +114,7 @@ export default function Table({
       </div>
       <div className="flex gap-2 items-center justify-end">
         <button
-          className="p-4"
+          className="py-4 px-1"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
