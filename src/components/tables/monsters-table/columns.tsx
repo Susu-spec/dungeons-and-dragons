@@ -77,10 +77,11 @@ export const columns: ColumnDef<Monster>[] = [
     accessorKey: "action",
     cell: ({ row }) => (
       <div className="flex place-content-center items-center gap-2 pointer-events-auto">
-        <CustomCell
-          value={<ViewRow data={row.original} CardContent={MonsterCard} />}
-          className="flex justify-center items-center w-full md:max-w-[3rem] pointer-events-auto"
-        />
+        <div className="flex place-content-center items-center gap-2">
+          <div className="flex justify-center items-center w-full md:max-w-[3rem]">
+            <ViewRow data={row.original} CardContent={MonsterCard} />
+          </div>
+        </div>
       </div>
     ),
   },

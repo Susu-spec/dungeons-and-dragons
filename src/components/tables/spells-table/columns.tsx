@@ -78,10 +78,9 @@ export const columns: ColumnDef<Spell>[] = [
     accessorKey: "action",
     cell: ({ row }) => (
       <div className="flex place-content-center items-center gap-2">
-        <CustomCell
-          value={<ViewRow data={row.original} CardContent={SpellCard} />}
-          className="flex justify-center items-center w-full md:max-w-[3rem]"
-        />
+        <div className="flex justify-center items-center w-full md:max-w-[3rem]">
+          <ViewRow data={row.original} CardContent={SpellCard} />
+        </div>
       </div>
     ),
   },
