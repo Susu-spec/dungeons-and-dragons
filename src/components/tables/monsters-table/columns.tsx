@@ -30,7 +30,7 @@ export const columns: ColumnDef<Monster>[] = [
     cell: (info) => (
       <CustomCell
         value={info.getValue()}
-        className="max-w-[8rem] truncate text-ellipsis whitespace-nowrap"
+        className="w-[10rem] truncate text-ellipsis whitespace-nowrap"
       />
     ),
   },
@@ -39,7 +39,7 @@ export const columns: ColumnDef<Monster>[] = [
     header: "Size",
     cell: (info) => {
       const size = capitalizeFirstLetter(info.getValue() as string);
-      return <CustomCell value={size} className="max-w-[5rem]" />;
+      return <CustomCell value={size} className="w-[8rem]" />;
     },
   },
   {
@@ -67,7 +67,7 @@ export const columns: ColumnDef<Monster>[] = [
     accessorKey: "xp",
     header: "XP",
     cell: (info) => (
-      <CustomCell value={info.getValue()} className="max-w-[5rem]" />
+      <CustomCell value={info.getValue()} className="w-[5rem]" />
     ),
     enableGlobalFilter: false,
   },
@@ -76,7 +76,7 @@ export const columns: ColumnDef<Monster>[] = [
     header: () => <CustomCell className="w-full md:max-w-[3rem]" />,
     accessorKey: "action",
     cell: ({ row }) => (
-      <div className="flex place-content-center items-center gap-2 w-8 md:w-fit">
+      <div className="flex place-content-center items-center gap-2 eye">
         <div className="flex justify-center items-center w-full md:max-w-[3rem]">
           <ViewRow data={row.original} CardContent={MonsterCard} />
         </div>

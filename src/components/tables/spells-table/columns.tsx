@@ -59,7 +59,7 @@ export const columns: ColumnDef<Spell>[] = [
     accessorKey: "school.name",
     header: "School",
     cell: (info) => (
-      <CustomCell value={info.getValue()} className="max-w-[5rem]" />
+      <CustomCell value={info.getValue()} className="w-[5rem]" />
     ),
   },
   {
@@ -68,7 +68,7 @@ export const columns: ColumnDef<Spell>[] = [
     cell: (info) => (
       <CustomCell
         value={info.getValue()}
-        className="max-w-[5rem] text-center"
+        className="w-[5rem] text-center"
       />
     ),
     enableGlobalFilter: false,
@@ -77,7 +77,7 @@ export const columns: ColumnDef<Spell>[] = [
     header: () => <CustomCell value="" className="w-full max-w-[3rem]" />,
     accessorKey: "action",
     cell: ({ row }) => (
-      <div className="flex place-content-center items-center gap-2 w-8 md:w-fit">
+      <div className="flex place-content-center items-center gap-2 eye">
         <div className="flex justify-center items-center w-full md:max-w-[3rem]">
           <ViewRow data={row.original} CardContent={SpellCard} />
         </div>

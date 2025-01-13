@@ -24,7 +24,7 @@ export const columns: ColumnDef<Equipment>[] = [
     cell: (info) => (
       <CustomCell
         value={info.getValue()}
-        className="max-w-[12rem] truncate text-ellipsis whitespace-nowrap"
+        className="w-[10rem] truncate text-ellipsis whitespace-nowrap"
       />
     ),
   },
@@ -44,8 +44,8 @@ export const columns: ColumnDef<Equipment>[] = [
     header: "Category",
     cell: (info) => (
       <CustomCell
-        value={info.getValue() || "Can't describe this monster."}
-        className="min-w-[7rem] max-w-[15rem] truncate text-ellipsis whitespace-nowrap"
+        value={info.getValue() || "No category found."}
+        className="min-w-[10rem] max-w-[15rem] truncate text-ellipsis whitespace-nowrap"
       />
     ),
   },
@@ -72,7 +72,7 @@ export const columns: ColumnDef<Equipment>[] = [
     header: () => <CustomCell value="" className="w-full md:max-w-[3rem]" />,
     accessorKey: "action",
     cell: ({ row }) => (
-      <div className="flex place-content-center items-center gap-2 w-8 md:w-fit">
+      <div className="flex place-content-center items-center gap-2 eye">
         <div className="flex justify-center items-center w-full md:max-w-[3rem]">
           <ViewRow data={row.original} CardContent={EquipmentCard} />
         </div>

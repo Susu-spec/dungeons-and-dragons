@@ -187,6 +187,40 @@ body {
   z-index: 1;
 }
 
+.eye {
+  width: auto;
+}
+
+.search-filter {
+  width: 100%;
+  max-width: 50%;
+}
+
+.tab {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+@media (max-width: 950px) {
+  .eye {
+    width: 3rem;
+  }
+
+  .search-filter {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .tab {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;

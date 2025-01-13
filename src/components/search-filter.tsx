@@ -17,7 +17,7 @@ export default function SearchFilter({
   };
 
   return (
-    <div className="w-full md:max-w-[50%] mx-auto flex gap-3 items-center justify-center">
+    <div className="search-filter mx-auto flex gap-3 items-center justify-center">
       <input
         type="text"
         placeholder={`Search ${activeTab}...`}
