@@ -11,14 +11,14 @@ interface Tab {
 export default function MedievalTabs({ tabs, activeTab, setActiveTab }: Tab) {
   return (
     <div className="flex flex-col gap-2 p-4 w-full">
-      <div className="flex mt-3 mx-auto space-x-4 bg-scroll-paper rounded-lg ">
+      <div className="flex md:mt-3 mx-auto space-x-4 bg-scroll-paper rounded-lg ">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => {
               setActiveTab(tab.id);
             }}
-            className={`px-6 py-3 text-lg font-uncial text-stone-900 bg-transparent-100 border-2 border-stone-800 rounded-t-lg shadow-inner hover:bg-stone-300 transition-all focus:outline-none ${activeTab === tab.id ? "border-[3px] border-yellow-400" : ""}`}
+            className={`px-3 py-1 text-sm md:px-6 md:py-3 md:text-lg font-uncial text-stone-900 bg-transparent-100 border-2 border-stone-800 rounded-t-lg shadow-inner hover:border-2 transition-all focus:outline-none ${activeTab === tab.id ? "border-[3px] border-yellow-400" : ""}`}
           >
             {tab.label}
           </button>

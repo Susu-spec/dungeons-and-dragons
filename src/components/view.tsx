@@ -14,9 +14,9 @@ export default function ViewRow({ data, CardContent }: ViewRowProps) {
   };
 
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative flex items-center justify-center">
       <button className="cursor-pointer" onClick={() => setOpen(true)}>
-        <img src={Eye} alt="View Cards" />
+        <img src={Eye} alt="View Cards"/>
       </button>
 
       {open && (

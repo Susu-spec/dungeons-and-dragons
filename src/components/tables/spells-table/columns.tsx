@@ -74,10 +74,10 @@ export const columns: ColumnDef<Spell>[] = [
     enableGlobalFilter: false,
   },
   {
-    header: () => <CustomCell value="" className="w-full md:max-w-[3rem]" />,
+    header: () => <CustomCell value="" className="w-full max-w-[3rem]" />,
     accessorKey: "action",
     cell: ({ row }) => (
-      <div className="flex place-content-center items-center gap-2">
+      <div className="flex place-content-center items-center gap-2 w-8 md:w-fit">
         <div className="flex justify-center items-center w-full md:max-w-[3rem]">
           <ViewRow data={row.original} CardContent={SpellCard} />
         </div>

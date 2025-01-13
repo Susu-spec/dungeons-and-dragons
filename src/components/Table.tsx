@@ -64,54 +64,54 @@ export default function Table({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="scroll-table bg-transparent border-stone-600 border-scroll border-2 rounded-lg p-4 shadow-2xl">
-        <table className="table-auto w-full border-collapse overflow-scroll">
-          <thead className="bg-scroll text-black text-2xl font-unifraktur">
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th key={header.id} className="p-2 text-left">
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}{" "}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {table.getRowModel().rows.length === 0 ? (
-              <tr>
-                <td colSpan={columns.length}>
-                  <EmptyState />
-                </td>
-              </tr>
-            ) : (
-              table.getRowModel().rows.map((row) => (
-                <tr
-                  key={row.id}
-                  className="odd:bg-scroll/10 even:bg-scroll/5 font-unifraktur border-none border-b-black"
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <td
-                      key={cell.id}
-                      className="p-2 max-w-[15rem] text-black text-xl focus-visible:outline-none cursor-default"
-                    >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </td>
+      <div className="scroll-table bg-transparent border-stone-600 border-scroll border-2 rounded-lg shadow-2xl">
+        <div className="overflow-y-auto p-4">
+          <table className="table-auto w-full border-collapse">
+            <thead className="bg-scroll text-black text-xl md:text-2xl font-unifraktur border-b border-b-stone-600 rounded-full">
+              {table.getHeaderGroups().map((headerGroup) => (
+                <tr key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => (
+                    <th key={header.id} className="p-2 text-left">
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                    </th>
                   ))}
                 </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+              ))}
+            </thead>
+            <tbody>
+              {table.getRowModel().rows.length === 0 ? (
+                <tr>
+                  <td colSpan={columns.length}>
+                    <EmptyState />
+                  </td>
+                </tr>
+              ) : (
+                table.getRowModel().rows.map((row) => (
+                  <tr
+                    key={row.id}
+                    className="odd:bg-scroll/10 even:bg-scroll/5 font-unifraktur border-none py-4"
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <td
+                        key={cell.id}
+                        className="p-2 max-w-[15rem] text-black text-base md:text-xl focus-visible:outline-none cursor-default"
+                      >
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
+
       <div className="flex gap-2 items-center justify-end">
         <button
           className="py-4 px-1"

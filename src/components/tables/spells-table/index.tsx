@@ -49,7 +49,7 @@ export default function SpellsTable({ activeTab }: { activeTab: string }) {
   return (
     <>
       {(loading || loader) && <Loader />}
-      <div className="w-full max-w-3.5/5 my-4 flex flex-col gap-4">
+      <div className="w-full max-w-3.5/5 md:my-4 flex flex-col gap-4">
         <SearchFilter
           activeTab={activeTab}
           localSearch={localSearch}
