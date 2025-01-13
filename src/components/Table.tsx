@@ -121,7 +121,7 @@ export default function Table({
           <img className="transform scale-x-[-1]" src={Sword} alt="Sword" />
         </button>
         <ul className="flex gap-1 items-center">
-          {Array.from({ length: table.getPageCount() }, (_, index) => (
+          {/* {Array.from({ length: table.getPageCount() }, (_, index) => (
             <li key={index}>
               <button
                 onClick={() => table.setPageIndex(index)}
@@ -134,7 +134,42 @@ export default function Table({
                 {index + 1}
               </button>
             </li>
-          ))}
+          ))} */}
+           {Array.from({ length: table.getPageCount() }, (_, index) => {
+            const currentPage = table.getState().pagination.pageIndex;
+            const totalPages = table.getPageCount();
+
+            if (
+              index === 0 ||
+              index === totalPages - 1 || 
+              Math.abs(index - currentPage) <= 1
+            ) {
+              return (
+                <li key={index}>
+                  <button
+                    onClick={() => table.setPageIndex(index)}
+                    className={`px-2 py-1 rounded flex items-center text-sm ${
+                      currentPage === index
+                        ? "bg-yellow-950 text-white"
+                        : "bg-transparent text-black"
+                    }`}
+                  >
+                    {index + 1}
+                  </button>
+                </li>
+              );
+            } else if (
+              (index === currentPage - 2 || index === currentPage + 2) &&
+              Math.abs(index - currentPage) > 1
+            ) {
+              return (
+                <li key={index} className="text-yellow-950">
+                  ...
+                </li>
+              );
+            }
+            return null;
+          })}
         </ul>
         <button
           onClick={() => table.nextPage()}
