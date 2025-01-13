@@ -40,8 +40,6 @@ body {
   overflow-y: scroll;
 }
 
-
-
 .card-container {
   perspective: 1000px; /* Create a 3D space for the card to flip */
 }

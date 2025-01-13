@@ -33,7 +33,7 @@ export const columns: ColumnDef<Equipment>[] = [
     header: "Description",
     cell: (info) => (
       <CustomCell
-        value={info.getValue() ?? "Can't describe this equipment."}
+        value={info.getValue() || "Can't describe this equipment."}
         className="max-w-[15rem] truncate text-ellipsis whitespace-nowrap"
       />
     ),
@@ -44,7 +44,7 @@ export const columns: ColumnDef<Equipment>[] = [
     header: "Category",
     cell: (info) => (
       <CustomCell
-        value={info.getValue() ?? "Can't describe this monster."}
+        value={info.getValue() || "Can't describe this monster."}
         className="min-w-[7rem] max-w-[15rem] truncate text-ellipsis whitespace-nowrap"
       />
     ),
@@ -55,7 +55,7 @@ export const columns: ColumnDef<Equipment>[] = [
     cell: (info) => {
       const { unit, quantity } = info.getValue() as Equipment["cost"];
       return (
-        <CustomCell value={`${quantity} ${unit}`} className="min-w-[8rem]" />
+        <CustomCell value={`${quantity} ${unit}` || "No cost found"} className="min-w-[8rem]" />
       );
     },
     enableGlobalFilter: false,
@@ -64,7 +64,7 @@ export const columns: ColumnDef<Equipment>[] = [
     accessorKey: "weight",
     header: "Weight",
     cell: (info) => (
-      <CustomCell value={info.getValue()} className="max-w-[5rem]" />
+      <CustomCell value={info.getValue() ?? "No weight"} className="max-w-[5rem]" />
     ),
     enableGlobalFilter: false,
   },
@@ -73,9 +73,9 @@ export const columns: ColumnDef<Equipment>[] = [
     accessorKey: "action",
     cell: ({ row }) => (
       <div className="flex place-content-center items-center gap-2">
-        <div
-          className="flex justify-center items-center w-full md:max-w-[3rem]"
-        ><ViewRow data={row.original} CardContent={EquipmentCard} /></div>
+        <div className="flex justify-center items-center w-full md:max-w-[3rem]">
+          <ViewRow data={row.original} CardContent={EquipmentCard} />
+        </div>
       </div>
     ),
   },

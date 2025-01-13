@@ -98,7 +98,7 @@ export default function Table({
                   {row.getVisibleCells().map((cell) => (
                     <td
                       key={cell.id}
-                      className="p-2 max-w-[15rem] text-black text-xl focus-visible:outline-none cursor-default" 
+                      className="p-2 max-w-[15rem] text-black text-xl focus-visible:outline-none cursor-default"
                     >
                       {flexRender(
                         cell.column.columnDef.cell,
