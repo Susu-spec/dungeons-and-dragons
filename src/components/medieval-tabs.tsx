@@ -18,7 +18,7 @@ export default function MedievalTabs({ tabs, activeTab, setActiveTab }: Tab) {
             onClick={() => {
               setActiveTab(tab.id);
             }}
-            className={`px-3 py-1 text-sm md:px-6 md:py-3 md:text-lg font-uncial text-stone-900 bg-transparent-100 border-2 border-stone-800 rounded-t-lg shadow-inner hover:border-2 transition-all focus:outline-none ${activeTab === tab.id ? "border-[3px] border-yellow-400" : ""}`}
+            className={`px-3 py-1 text-sm md:px-6 md:py-3 md:text-lg font-uncial text-stone-900 bg-transparent-100 border-2 border-stone-800 rounded-t-lg shadow-inner hover:border-2 transition-all focus:outline-none ${activeTab === tab.id ? "border-[3px] border-yellow-400 focus:ring-2 focus:ring-yellow-400" : ""}`}
           >
             {tab.label}
           </button>
