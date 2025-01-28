@@ -1,50 +1,104 @@
-# React + TypeScript + Vite
+# Dungeons and Dragons Inspired Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
 
-Currently, two official plugins are available:
+- [Introduction](#introduction)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
 
-## Expanding the ESLint configuration
+- [Technologies Used](#technologies-used)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Setup Instructions](#setup-instructions)
 
-- Configure the top-level `parserOptions` property like this:
+- [Folder Structure](#folder-structure)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+- [Usage](#usage)
+
+
+
+## Introduction
+
+This project is designed to create an interactive, responsive table with advanced features such as pagination, scrolling, and dynamic data rendering. The table provides a smooth user experience and adheres to modern design principles.
+
+## Features
+
+- Responsive Table Design: Adjusts seamlessly to different screen sizes.
+- Pagination: Dynamically paginate table rows.
+- Search: Inputting certain sections such as name, materials, school, size, languages and category prompts items containing that information.
+- Dynamic Data Loading: Render rows and cells based on external data.
+- Randomizer: Randomizes the data based on the names section.
+- Interactive Elements:
+  - Page navigation buttons (styled with swords for a medieval theme).
+  - Scroll Control: Maintain intact table borders while enabling scrolling for content.
+- Mobile Optimizations:
+  - Hide excess pagination numbers.
+  - Enable sliding or dynamic expansion for hidden numbers.
+
+
+## Technologies Used
+- React: Component-based UI design.
+- TypeScript: Ensures type safety.
+- Tailwind CSS: Utility-first CSS framework for rapid UI styling.
+- React Table: For efficient table rendering and manipulation.
+- Framer Motion: Adds smooth animations (used in interactive elements).
+
+
+## Setup Instructions
+
+### Prerequisites
+
+Ensure you have the following installed on your machine:
+
+- Node.js (>=16.x)
+- npm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
+2. Navigate into the project directory:
+```bash
+cd project-name
 ```
+
+3. Install dependencies:
+```bash
+npm install
+```
+
+Start the development server:
+```bash
+npm run dev
+```
+
+5. Open your browser and navigate to http://localhost:3000.
+
+
+## Folder Structure
+
+```
+project-name/
+├── public/          # Static assets like images, icons, etc.
+├── src/             # Main application source code
+│   ├── components/  # Reusable React components (e.g., Table, Pagination)
+│   ├── hooks/       # Custom React hooks
+│   ├── styles/      # Tailwind CSS configurations
+│   ├── utils/       # Utility functions
+│   ├── pages/       # Application pages
+│   └── app.tsx      # Root application file
+├── tailwind.config.js # Tailwind CSS configuration
+├── tsconfig.json     # TypeScript configuration
+├── package.json      # Project dependencies and scripts
+└── README.md         # Project documentation
+```
+
+## Usage
+
+- Navigate through the pages using the sword-themed pagination buttons.
+
+- Hover over table cells to reveal tooltips for truncated text.
+
+- Use the table on mobile to experience dynamic row adjustments and hidden pagination controls.
