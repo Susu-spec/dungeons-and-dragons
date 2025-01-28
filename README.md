@@ -76,19 +76,22 @@ npm run dev
 ## Folder Structure
 
 ```
-project-name/
-├── public/          # Static assets like images, icons, etc.
-├── src/             # Main application source code
-│   ├── components/  # Reusable React components (e.g., Table, Pagination)
-│   ├── hooks/       # Custom React hooks
-│   ├── styles/      # Tailwind CSS configurations
-│   ├── utils/       # Utility functions
-│   ├── pages/       # Application pages
-│   └── app.tsx      # Root application file
+dungeons-and-dragons/
+├── public/           # Static assets like images, icons, etc. (served directly)
+├── src/              # Main application source code
+│   ├── components/   # Reusable React components (e.g., Table, Pagination)
+│   ├── assets/       # Application-level assets (e.g., SVGs, PNGs)
+│   ├── data/         # Mock data or APIs for testing
+│   ├── styles/       # Global CSS styles
+│   ├── lib/          # Utility functions and helpers
+│   ├── pages/        # Application page components (mapped to routes)
+│   ├── main.tsx      # Application's entry point (main file)
+│   ├── types.ts      # TypeScript types and interfaces
+│   └── app.tsx       # Root application component
 ├── tailwind.config.js # Tailwind CSS configuration
-├── tsconfig.json     # TypeScript configuration
-├── package.json      # Project dependencies and scripts
-└── README.md         # Project documentation
+├── tsconfig.json      # TypeScript configuration
+├── package.json       # Project dependencies and scripts
+└── README.md          # Project documentation
 ```
 
 ## Usage
