@@ -22,25 +22,21 @@ This project is designed to create an interactive, responsive table with advance
 
 ## Features
 
-- Responsive Table Design: Adjusts seamlessly to different screen sizes.
-- Pagination: Dynamically paginate table rows.
-- Search: Inputting certain sections such as name, materials, school, size, languages and category prompts items containing that information.
-- Dynamic Data Loading: Render rows and cells based on external data.
-- Randomizer: Randomizes the data based on the names section.
-- Interactive Elements:
-  - Page navigation buttons (styled with swords for a medieval theme).
-  - Scroll Control: Maintain intact table borders while enabling scrolling for content.
-- Mobile Optimizations:
-  - Hide excess pagination numbers.
-  - Enable sliding or dynamic expansion for hidden numbers.
-
+- **Responsive Table Design**: Adapts to various screen sizes.
+- **Pagination**: Medieval sword-themed navigation buttons.
+- **Search**: Query specific data by entering keywords (e.g., name, materials, size, schools and languages.).
+- **Dynamic Data Randomizer**: Shuffles the table data based on names.
+- **Mobile Optimizations**:
+  - Hide excess pagination numbers on smaller screens.
+  - Enable sliding or dynamic number expansion for navigation.
 
 ## Technologies Used
-- React: Component-based UI design.
-- TypeScript: Ensures type safety.
-- Tailwind CSS: Utility-first CSS framework for rapid UI styling.
-- React Table: For efficient table rendering and manipulation.
-- Framer Motion: Adds smooth animations (used in interactive elements).
+
+- **React**: For building a modular and dynamic UI.
+- **TypeScript**: Ensures type safety.
+- **Tailwind CSS**: For rapid, utility-first styling.
+- **React Table**: Manages table data and features like sorting and filtering.
+- **Framer Motion**: Smooth animations for interactive elements.
 
 
 ## Setup Instructions
