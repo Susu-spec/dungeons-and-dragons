@@ -1,5 +1,5 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import { CustomCell } from "../../Table";
+import { CustomCell } from "../../table";
 import ViewRow from "../../view";
 import { MonsterCard } from "./monster-card";
 
@@ -12,7 +12,7 @@ export interface Monster {
   index: string;
   name: string;
   languages: string;
-  desc: string;
+  alignment: string;
   xp: number;
   strength: number;
   hit_points: number;
@@ -43,12 +43,12 @@ export const columns: ColumnDef<Monster>[] = [
     },
   },
   {
-    accessorKey: "desc",
-    header: "Description",
+    accessorKey: "alignment",
+    header: "Alignment",
     cell: (info) => (
       <CustomCell
-        value={info.getValue() ?? "Can't describe this monster."}
-        className="max-w-[20rem] truncate text-ellipsis whitespace-nowrap"
+        value={info.getValue() ?? "We don't know where this monster's loyalty lies."}
+        className="max-w-[20rem] truncate text-ellipsis whitespace-nowrap capitalize"
       />
     ),
     enableGlobalFilter: false,

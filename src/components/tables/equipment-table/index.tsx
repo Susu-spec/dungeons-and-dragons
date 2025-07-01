@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import Table from "../../Table";
+import Table from "../../table";
 import { columns } from "./columns";
 import { useState } from "react";
 import SearchFilter from "../../search-filter";
@@ -7,18 +7,16 @@ import Loader from "../../loader";
 
 const GET_EQUIPMENT = gql`
   query {
-    equipments {
-      index
-      name
-      cost {
-        unit
-        quantity
-      }
-      desc
-      equipment_category {
+    equipments(equipment_category: $equipmentCategory, name: $name) {
+      ... on Gear {
+        cost {
+          quantity
+          unit
+        }
+        index
         name
+        weight
       }
-      weight
     }
   }
 `;

@@ -48,10 +48,10 @@ const CardFront = ({ data }: { data: any }) => {
         <div className="flex flex-col gap-10 text-left">
           <div className="flex flex-col gap-2 w-full text-clip overflow-hidden">
             <p className="text-black text-xl font-semibold font-unifraktur">
-              Description
+              Alignment
             </p>
-            <p className="text-black text-sm font-semibold text-wrap line-clamp-[20]">
-              {data?.desc || "No details found."}
+            <p className="text-black text-sm font-semibold text-wrap line-clamp-[20] capitalize">
+              {data?.alignment || "No details found."}
             </p>
           </div>
           <div className="flex flex-col gap-2">

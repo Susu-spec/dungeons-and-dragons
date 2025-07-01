@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { columns } from "./columns";
-import Table from "../../Table";
+import Table from "../../table";
 import { useState } from "react";
 import SearchFilter from "../../search-filter";
 import Loader from "../../loader";

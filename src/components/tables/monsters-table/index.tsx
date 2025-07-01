@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import Table from "../../Table";
+import Table from "../../table";
 import { columns } from "./columns";
 import { useState } from "react";
 import SearchFilter from "../../search-filter";
@@ -15,18 +15,20 @@ const GET_MONSTERS = gql`
       }
       languages
       name
-      desc
+      alignment
       actions {
         actions {
           action_name
         }
       }
-      armor_class {
+     armor_class {
+      ... on ArmorClassSpell {
         type
         spell {
           name
         }
       }
+    }
       index
       dexterity
       hit_points

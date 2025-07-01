@@ -2,7 +2,6 @@ import { useState } from "react";
 import MedievalTabs from "../components/medieval-tabs";
 import SpellsTable from "../components/tables/spells-table";
 import MonstersTable from "../components/tables/monsters-table";
-import EquipmentTable from "../components/tables/equipment-table";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("spells");
@@ -17,11 +16,11 @@ export default function Dashboard() {
       label: "Monsters",
       content: <MonstersTable activeTab={activeTab} />,
     },
-    {
-      id: "equipment",
-      label: "Equipment",
-      content: <EquipmentTable activeTab={activeTab} />,
-    },
+    // {
+    //   id: "equipment",
+    //   label: "Equipment",
+    //   content: <EquipmentTable activeTab={activeTab} />,
+    // },
   ];
 
   return (
