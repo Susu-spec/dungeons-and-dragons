@@ -1,5 +1,5 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import { CustomCell } from "../../table";
+import { CustomCell } from "../../Table";
 import ViewRow from "../../view";
 import { MonsterCard } from "./monster-card";
 
